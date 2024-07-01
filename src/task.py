@@ -1,7 +1,7 @@
 import  datetime
+from src.base_task import BaseTask
 
-
-class Task:
+class Task(BaseTask):
     name: str
     description: str
     status: str
@@ -59,3 +59,5 @@ if __name__ == "__main__":
     task2.created_at = "29.01.2024"
     print(task2.created_at)
     print(task + task2)
+
+    # task + 1
