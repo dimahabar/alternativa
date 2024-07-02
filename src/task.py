@@ -1,7 +1,9 @@
 import  datetime
 from src.base_task import BaseTask
+from src.print_mixin import PrintMixin
 
-class Task(BaseTask):
+
+class Task(BaseTask, PrintMixin):
     name: str
     description: str
     status: str
@@ -15,7 +17,7 @@ class Task(BaseTask):
         # Делаем  created_at  приватным __created_at
         self.__created_at = created_at if created_at else datetime.date.today().strftime('%d.%m.%Y')
         self.run_time = run_time
-
+        super().__init__()
     def __str__(self):
         return f"{self.name}, Статус выполнения: {self.status}, Дата создания: {self.created_at}"
 
